@@ -56,9 +56,9 @@ module top(
 	reg [15:0] to_move;
 	
 	always@(posedge pclk) begin
-			address = address - 1;
 			if (write_enable) begin
-				write_enable <=0;				
+				write_enable <=0;
+				address <= address - 1;
 			end else begin
 				write_enable <=1;
 				write_data <= to_move;
@@ -66,3 +66,4 @@ module top(
 			end
 	end
 endmodule
+
